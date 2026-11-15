@@ -1,6 +1,6 @@
 /**
  * ABRSM Music Theory 101 - Master Application Coordinator
- * Matching N1Mandarin Editorial Design: Rice Paper + Ink + Vermilion Seal
+ * Matching N1Mandarin Editorial Design: Rice Paper + Ink + Dark Blue Seal
  */
 
 class AbrsmApp {
@@ -546,7 +546,7 @@ class AbrsmApp {
     window.soundEngine.playCadence(kData.chord1, kData.chord2);
 
     const h1 = {};
-    kData.chord1.forEach(n => h1[n] = { color: '#b8432f', badge: cad.name1 });
+    kData.chord1.forEach(n => h1[n] = { color: '#163a66', badge: cad.name1 });
     this.piano.setHighlights(h1);
 
     setTimeout(() => {

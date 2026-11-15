@@ -999,7 +999,7 @@ class NoteFlashcardsEngine {
       const card = this.deck[this.currentIndex];
       if (card && card.audioNote && window.mainPiano) {
         window.mainPiano.setHighlights({
-          [card.audioNote]: { color: '#b8432f', badge: card.pitch || 'Note', root: true }
+          [card.audioNote]: { color: '#163a66', badge: card.pitch || 'Note', root: true }
         });
       }
       this.playCurrentCardSound();
