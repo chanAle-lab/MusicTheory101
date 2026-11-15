@@ -63,10 +63,17 @@ class AbrsmApp {
       }
     }
 
-    // 6. Bind Global Navigation Events
+    // 6. Initialize Worksheets & Practice Paper Engine
+    if (window.WorksheetsEngine) {
+      this.worksheets = new WorksheetsEngine();
+      window.worksheetsEngine = this.worksheets;
+      this.worksheets.init();
+    }
+
+    // 7. Bind Global Navigation Events
     this.bindEvents();
 
-    // 7. Load Active Grade (Defaults strictly to Grade 1)
+    // 8. Load Active Grade (Defaults strictly to Grade 1)
     const savedGrade = parseInt(localStorage.getItem('abrsm_current_grade'), 10) || 1;
     this.setGrade(savedGrade);
   }
@@ -190,6 +197,10 @@ class AbrsmApp {
 
     if (tabId === 'flashcards' && this.flashcards) {
       this.flashcards.renderCurrentCard();
+    }
+
+    if (tabId === 'worksheets' && this.worksheets) {
+      this.worksheets.render();
     }
 
     // Scroll to main content smoothly

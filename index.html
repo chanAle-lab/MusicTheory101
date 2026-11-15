@@ -10,7 +10,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
   
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163a66'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='white' font-family='serif'%3E%F0%9D%84%9E%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css?v=20261115b" />
+  <link rel="stylesheet" href="style.css?v=20261115c" />
 
   <!-- Pre-render theme check to prevent flash of light theme -->
   <script>
@@ -43,6 +43,7 @@
       <a href="#/flashcards" data-tab="flashcards">Flashcards</a>
       <a href="#/terms" data-tab="terms">Terms & Signs</a>
       <a href="#/exam" data-tab="exam">Exam Trainer</a>
+      <a href="#/worksheets" data-tab="worksheets">Worksheets</a>
       <a href="#/cadences" data-tab="cadences" id="nav-cadences" style="display: none;">Cadences (Gr 5)</a>
       <a href="#/orchestra" data-tab="orchestra" id="nav-orchestra" style="display: none;">Orchestra (Gr 4–5)</a>
     </nav>
@@ -72,6 +73,7 @@
         <div class="hero-actions" id="hero-actions">
           <button class="btn primary" onclick="window.app.switchTab('flashcards');">🃏 Study Grade 1 Flashcards</button>
           <button class="btn outline" onclick="window.app.switchTab('exam');">📝 Grade 1 Practice Exam</button>
+          <button class="btn outline" onclick="window.app.switchTab('worksheets');">📄 Worksheets for Teachers & Parents</button>
           <button class="btn outline" onclick="window.app.setGrade(2);" id="hero-next-grade-btn">Advance to Grade 2 →</button>
         </div>
       </div>
@@ -387,6 +389,13 @@
       </div>
     </section>
 
+    <!-- TAB 7: Worksheets & Practice Papers for Teachers & Parents -->
+    <section id="tab-worksheets" class="tab-view">
+      <div id="worksheets-container">
+        <!-- Injected by worksheets.js -->
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer (Identical style to N1Mandarin) -->
@@ -400,12 +409,13 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="audio.js?v=20261115b"></script>
-  <script src="piano.js?v=20261115b"></script>
-  <script src="stave.js?v=20261115b"></script>
-  <script src="abrsm-data.js?v=20261115b"></script>
-  <script src="abrsm-quiz.js?v=20261115b"></script>
-  <script src="flashcards.js?v=20261115b"></script>
-  <script src="app.js?v=20261115b"></script>
+  <script src="audio.js?v=20261115c"></script>
+  <script src="piano.js?v=20261115c"></script>
+  <script src="stave.js?v=20261115c"></script>
+  <script src="abrsm-data.js?v=20261115c"></script>
+  <script src="abrsm-quiz.js?v=20261115c"></script>
+  <script src="flashcards.js?v=20261115c"></script>
+  <script src="worksheets.js?v=20261115c"></script>
+  <script src="app.js?v=20261115c"></script>
 </body>
 </html>
