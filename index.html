@@ -10,7 +10,22 @@
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
   
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163a66'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='white' font-family='serif'%3E%F0%9D%84%9E%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css?v=20261115" />
+  <link rel="stylesheet" href="style.css?v=20261115b" />
+
+  <!-- Pre-render theme check to prevent flash of light theme -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('abrsm_theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -33,6 +48,7 @@
     </nav>
 
     <div class="header-tools">
+      <button id="theme-toggle-btn" class="btn-theme-toggle" title="Switch to Dark Mode" aria-label="Toggle dark/light mode">🌙</button>
       <div class="vol-control">
         <button id="mute-btn" class="btn-mute" title="Toggle Mute">🔊</button>
         <input type="range" id="master-volume" class="vol-slider" min="0" max="1" step="0.05" value="0.6" title="Volume">
@@ -384,12 +400,12 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="audio.js?v=20261115"></script>
-  <script src="piano.js?v=20261115"></script>
-  <script src="stave.js?v=20261115"></script>
-  <script src="abrsm-data.js?v=20261115"></script>
-  <script src="abrsm-quiz.js?v=20261115"></script>
-  <script src="flashcards.js?v=20261115"></script>
-  <script src="app.js?v=20261115"></script>
+  <script src="audio.js?v=20261115b"></script>
+  <script src="piano.js?v=20261115b"></script>
+  <script src="stave.js?v=20261115b"></script>
+  <script src="abrsm-data.js?v=20261115b"></script>
+  <script src="abrsm-quiz.js?v=20261115b"></script>
+  <script src="flashcards.js?v=20261115b"></script>
+  <script src="app.js?v=20261115b"></script>
 </body>
 </html>

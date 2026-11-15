@@ -14,6 +14,9 @@ class AbrsmApp {
   }
 
   init() {
+    // 0. Initialize Dark/Light Mode Theme
+    this.initTheme();
+
     // 1. Initialize Musical Stave Engine if container present
     const staveContainer = document.getElementById('main-stave-container');
     if (staveContainer) {
@@ -118,6 +121,52 @@ class AbrsmApp {
     }
     if (gradeSelect) {
       gradeSelect.addEventListener('change', () => this.filterGlossary());
+    }
+  }
+
+  initTheme() {
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    this.updateThemeButton(currentTheme);
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const activeTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+        this.setTheme(newTheme);
+      });
+    }
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('abrsm_theme')) {
+          this.setTheme(e.matches ? 'dark' : 'light', false);
+        }
+      });
+    }
+  }
+
+  setTheme(theme, save = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (save) {
+      try {
+        localStorage.setItem('abrsm_theme', theme);
+      } catch (e) {}
+    }
+    this.updateThemeButton(theme);
+  }
+
+  updateThemeButton(theme) {
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    if (!toggleBtn) return;
+    if (theme === 'dark') {
+      toggleBtn.textContent = '☀️';
+      toggleBtn.title = 'Switch to Light Mode (currently Dark)';
+      toggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
+    } else {
+      toggleBtn.textContent = '🌙';
+      toggleBtn.title = 'Switch to Dark Mode (currently Light)';
+      toggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
     }
   }
 
