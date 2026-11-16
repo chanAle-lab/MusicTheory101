@@ -76,6 +76,12 @@ class AbrsmApp {
     // 8. Load Active Grade (Defaults strictly to Grade 1)
     const savedGrade = parseInt(localStorage.getItem('abrsm_current_grade'), 10) || 1;
     this.setGrade(savedGrade);
+
+    // 9. Load Active Tab from URL Hash if provided, or default to syllabus
+    const validTabs = ['syllabus', 'flashcards', 'terms', 'exam', 'worksheets', 'cadences', 'orchestra'];
+    const currentHash = (window.location.hash || '').replace(/^#\/?/, '');
+    const initialTab = validTabs.includes(currentHash) ? currentHash : 'syllabus';
+    this.switchTab(initialTab);
   }
 
   bindEvents() {
@@ -86,6 +92,15 @@ class AbrsmApp {
         const tab = e.currentTarget.dataset.tab;
         this.switchTab(tab);
       });
+    });
+
+    // Listen for browser back/forward or hash changes
+    window.addEventListener('hashchange', () => {
+      const hash = (window.location.hash || '').replace(/^#\/?/, '');
+      const validTabs = ['syllabus', 'flashcards', 'terms', 'exam', 'worksheets', 'cadences', 'orchestra'];
+      if (validTabs.includes(hash) && hash !== this.currentTab) {
+        this.switchTab(hash);
+      }
     });
 
     // Grade Switcher Pills
@@ -180,6 +195,12 @@ class AbrsmApp {
   switchTab(tabId) {
     this.currentTab = tabId;
 
+    // Show hero section ONLY on syllabus tab
+    const heroEl = document.getElementById('hero-section') || document.querySelector('.hero');
+    if (heroEl) {
+      heroEl.style.display = (tabId === 'syllabus' ? '' : 'none');
+    }
+
     // Update Header Nav Links
     document.querySelectorAll('.site-header nav a').forEach(link => {
       link.classList.toggle('active', link.dataset.tab === tabId);
@@ -189,6 +210,13 @@ class AbrsmApp {
     document.querySelectorAll('.tab-view').forEach(view => {
       view.classList.toggle('active', view.id === `tab-${tabId}`);
     });
+
+    // Update URL hash for direct links/history
+    try {
+      if (window.location.hash !== `#/${tabId}`) {
+        window.history.replaceState(null, '', `/#/${tabId}`);
+      }
+    } catch (e) {}
 
     // Trigger first question if switching to exam
     if (tabId === 'exam' && !window.abrsmQuizEngine.currentQuestion) {
