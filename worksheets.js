@@ -741,9 +741,9 @@ class WorksheetsEngine {
         </div>
 
         <div class="worksheet-hub-badges">
-          <span class="hub-pill">🖨️ Clean A4 / Letter Print Layout</span>
-          <span class="hub-pill">✨ Procedural Paper Generator</span>
-          <span class="hub-pill">👁️ Teacher Answer Key Included</span>
+          <span class="hub-pill">Clean A4 / Letter Print Layout</span>
+          <span class="hub-pill">Procedural Paper Generator</span>
+          <span class="hub-pill">Teacher Answer Key Included</span>
         </div>
       </div>
 
@@ -751,35 +751,35 @@ class WorksheetsEngine {
       <div class="worksheet-nav-bar">
         <div class="worksheet-topics-group">
           <button class="worksheet-topic-btn ${this.currentTopic === 'notes' ? 'active' : ''}" onclick="window.worksheetsEngine.selectTopic('notes')">
-            🎼 Notes on the Stave
+            Notes on the Stave
           </button>
           <button class="worksheet-topic-btn ${this.currentTopic === 'values' ? 'active' : ''}" onclick="window.worksheetsEngine.selectTopic('values')">
-            ⏱️ Note Values & Math
+            Note Values & Math
           </button>
           <button class="worksheet-topic-btn ${this.currentTopic === 'signatures' ? 'active' : ''}" onclick="window.worksheetsEngine.selectTopic('signatures')">
-            🔀 Time Signatures & Bars
+            Time Signatures & Bars
           </button>
           <button class="worksheet-topic-btn ${this.currentTopic === 'rests' ? 'active' : ''}" onclick="window.worksheetsEngine.selectTopic('rests')">
-            ⏸️ Rests, Ties & Dots
+            Rests, Ties & Dots
           </button>
           <button class="worksheet-topic-btn ${this.currentTopic === 'revision' ? 'active' : ''}" onclick="window.worksheetsEngine.selectTopic('revision')">
-            🌟 Full Mock Test
+            Full Mock Test
           </button>
           <button class="worksheet-topic-btn generator-pill ${this.currentTopic === 'generator' ? 'active' : ''}" onclick="window.worksheetsEngine.selectTopic('generator')">
-            ⚡ Generator Studio
+            Generator Studio
           </button>
         </div>
 
         <!-- Quick Action Bar -->
         <div class="worksheet-actions-group">
           <button class="btn outline small" onclick="window.worksheetsEngine.toggleAnswerKey()" title="Toggle Answers for Teachers">
-            ${this.showAnswers ? '🙈 Hide Answer Key' : '👁️ Show Answer Key'}
+            ${this.showAnswers ? 'Hide Answer Key' : 'Show Answer Key'}
           </button>
           <button class="btn primary small" onclick="window.worksheetsEngine.generateNewVariant()" title="Generate a brand-new randomized paper on this topic">
-            🎲 Generate New Paper
+            Generate New Paper
           </button>
           <button class="btn accent small" onclick="window.worksheetsEngine.printWorksheet()" title="Print cleanly on A4 or Letter paper">
-            🖨️ Print / Save PDF
+            Print / Save PDF
           </button>
         </div>
       </div>
@@ -837,7 +837,7 @@ class WorksheetsEngine {
           <!-- Answer Key Banner (if enabled) -->
           ${this.showAnswers ? `
             <div class="answer-key-banner">
-              <strong>👁️ TEACHER / PARENT ANSWER KEY ACTIVE</strong>
+              <strong>TEACHER / PARENT ANSWER KEY ACTIVE</strong>
               <span>Answers are displayed in highlighted ink below for easy grading.</span>
             </div>
           ` : ''}
@@ -1366,7 +1366,7 @@ class WorksheetsEngine {
               <span class="rhythm-notation">${item.prompt.replace('[ ? ]', '')}</span>
             </div>
           </div>
-          ${this.showAnswers ? `<div class="meter-explanation">💡 Reason: ${item.explanation}</div>` : ''}
+          ${this.showAnswers ? `<div class="meter-explanation">Reason: ${item.explanation}</div>` : ''}
         </div>
       `;
     });

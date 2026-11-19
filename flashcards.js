@@ -1094,7 +1094,7 @@ class NoteFlashcardsEngine {
           <div class="flashcard-footer-prompt">
             ${hasSound ? `
               <button class="btn outline small" onclick="event.stopPropagation(); window.flashcardsEngine.playCurrentCardSound();" title="Press P to hear sound">
-                🔊 Hear Sound
+                Hear Sound
               </button>
             ` : `<span style="font-size: var(--text-xs); color: var(--color-muted);">ABRSM Syllabus Card</span>`}
             <span style="font-size: var(--text-xs); color: var(--color-muted);">
@@ -1113,7 +1113,7 @@ class NoteFlashcardsEngine {
             <div class="flashcard-footer-prompt">
               ${hasSound ? `
                 <button class="btn outline small" onclick="event.stopPropagation(); window.flashcardsEngine.playCurrentCardSound();" title="Press P to replay sound">
-                  🔊 Replay Note
+                  Replay Note
                 </button>
               ` : `<span></span>`}
               <span style="font-size: var(--text-xs); color: var(--color-muted);">
@@ -1139,14 +1139,14 @@ class NoteFlashcardsEngine {
                 ${card.description}
               </p>
               <p class="flashcard-hint-text">
-                💡 <em>${card.hint}</em>
+                <em>${card.hint}</em>
               </p>
             </div>
 
             <div class="flashcard-footer-prompt">
               ${hasSound ? `
                 <button class="btn outline small" onclick="event.stopPropagation(); window.flashcardsEngine.playCurrentCardSound();">
-                  🔊 Replay Audio
+                  Replay Audio
                 </button>
               ` : `<span></span>`}
               <span style="font-size: var(--text-xs); color: var(--color-muted);">

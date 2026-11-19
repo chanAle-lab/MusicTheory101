@@ -243,28 +243,6 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-1px);
 }
 
-.vol-control {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.vol-slider {
-  width: 70px;
-  accent-color: var(--color-accent);
-  cursor: pointer;
-}
-
-.btn-mute {
-  background: none;
-  border: 1px solid var(--color-line);
-  color: var(--color-muted);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
 /* Main Container */
 main {
   max-width: var(--maxw);
@@ -1956,8 +1934,7 @@ main {
   #tab-orchestra,
   .skip,
   .btn,
-  #theme-toggle-btn,
-  .vol-control {
+  #theme-toggle-btn {
     display: none !important;
   }
 

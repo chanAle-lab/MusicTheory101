@@ -8,7 +8,7 @@ const LESSONS_DATA = [
     number: '01',
     title: 'The 12 Notes & The Musical Alphabet',
     tag: 'Fundamentals',
-    icon: '🎵',
+    icon: '',
     summary: 'Discover the building blocks of all Western music: the 12 chromatic pitches and the octave.',
     content: `
       <h2>The Building Blocks: The 12 Notes</h2>
@@ -56,7 +56,7 @@ const LESSONS_DATA = [
     number: '02',
     title: 'Half Steps & Whole Steps',
     tag: 'Distance & Pitch',
-    icon: '📏',
+    icon: '',
     summary: 'Understand the fundamental units of musical distance: semitones and whole tones.',
     content: `
       <h2>Measuring Musical Distance</h2>
@@ -85,7 +85,7 @@ const LESSONS_DATA = [
       </div>
 
       <div class="callout-box info-box">
-        💡 <strong>Pro Tip:</strong> Look at the keyboard! Notice where there are NO black keys: between <strong>B-C</strong> and <strong>E-F</strong>. Remembering these two pairs is one of the biggest shortcuts in music theory!
+        <strong>Tip:</strong> Look at the keyboard! Notice where there are NO black keys: between <strong>B-C</strong> and <strong>E-F</strong>. Remembering these two pairs is one of the biggest shortcuts in music theory!
       </div>
 
       <div class="interactive-demo-card">
@@ -103,7 +103,7 @@ const LESSONS_DATA = [
     number: '03',
     title: 'The Major Scale & Formula',
     tag: 'Scales',
-    icon: '☀️',
+    icon: '',
     summary: 'The happiest, most foundational scale in music: W-W-H-W-W-W-H.',
     content: `
       <h2>The Queen of Music: The Major Scale</h2>
@@ -151,7 +151,7 @@ const LESSONS_DATA = [
     number: '04',
     title: 'The Minor Scales: Natural, Harmonic & Melodic',
     tag: 'Scales',
-    icon: '🌙',
+    icon: '',
     summary: 'Explore emotional, darker, and melancholic tonalities through minor scales.',
     content: `
       <h2>The World of Minor Scales</h2>
@@ -192,7 +192,7 @@ const LESSONS_DATA = [
     number: '05',
     title: 'Musical Intervals & Song Mnemonics',
     tag: 'Intervals',
-    icon: '🎯',
+    icon: '',
     summary: 'Train your ear to recognize the distance between any two notes using famous songs.',
     content: `
       <h2>What is an Interval?</h2>
@@ -290,7 +290,7 @@ const LESSONS_DATA = [
     number: '06',
     title: 'Building Triads & Common Chords',
     tag: 'Harmony',
-    icon: '🎹',
+    icon: '',
     summary: 'Stack intervals in thirds to build Major, Minor, Diminished, and Augmented triads.',
     content: `
       <h2>The Anatomy of a Chord</h2>
@@ -373,7 +373,7 @@ const LESSONS_DATA = [
     number: '08',
     title: 'Rhythm, Meter & Time Signatures',
     tag: 'Rhythm',
-    icon: '⏳',
+    icon: '',
     summary: 'Music is pitch plus time. Master note values, beats, and time signatures.',
     content: `
       <h2>Rhythm: The Heartbeat of Music</h2>

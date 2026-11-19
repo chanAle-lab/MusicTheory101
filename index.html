@@ -10,7 +10,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
   
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163a66'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='white' font-family='serif'%3E%F0%9D%84%9E%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css?v=20261116a" />
+  <link rel="stylesheet" href="style.css?v=20261119a" />
 
   <!-- Pre-render theme check to prevent flash of light theme -->
   <script>
@@ -49,11 +49,9 @@
     </nav>
 
     <div class="header-tools">
-      <button id="theme-toggle-btn" class="btn-theme-toggle" title="Switch to Dark Mode" aria-label="Toggle dark/light mode">🌙</button>
-      <div class="vol-control">
-        <button id="mute-btn" class="btn-mute" title="Toggle Mute">🔊</button>
-        <input type="range" id="master-volume" class="vol-slider" min="0" max="1" step="0.05" value="0.6" title="Volume">
-      </div>
+      <button id="theme-toggle-btn" class="btn-theme-toggle" title="Switch to Dark Mode" aria-label="Toggle dark/light mode">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
     </div>
   </header>
 
@@ -71,9 +69,9 @@
           Start your music theory journey with a complete Grade 1 foundation: note values, rests, simple time signatures, Grand Staff pitch, C/G/D/F major scales, tonic triads, and Italian terms.
         </p>
         <div class="hero-actions" id="hero-actions">
-          <button class="btn primary" onclick="window.app.switchTab('flashcards');">🃏 Study Grade 1 Flashcards</button>
-          <button class="btn outline" onclick="window.app.switchTab('exam');">📝 Grade 1 Practice Exam</button>
-          <button class="btn outline" onclick="window.app.switchTab('worksheets');">📄 Worksheets for Teachers & Parents</button>
+          <button class="btn primary" onclick="window.app.switchTab('flashcards');">Study Grade 1 Flashcards</button>
+          <button class="btn outline" onclick="window.app.switchTab('exam');">Grade 1 Practice Exam</button>
+          <button class="btn outline" onclick="window.app.switchTab('worksheets');">Worksheets for Teachers & Parents</button>
           <button class="btn outline" onclick="window.app.setGrade(2);" id="hero-next-grade-btn">Advance to Grade 2 →</button>
         </div>
       </div>
@@ -87,8 +85,8 @@
           Interactive 3D flashcards featuring notes on the Grand Staff, note values & rests, simple time signatures, and Italian terms with audio.
         </p>
         <div style="display: flex; gap: var(--space-2); margin-top: var(--space-2); flex-wrap: wrap;">
-          <button class="btn primary small" onclick="window.app.switchTab('flashcards')">🃏 Study Flashcards</button>
-          <button class="btn outline small" onclick="window.app.switchTab('exam')">📝 Exam Trainer</button>
+          <button class="btn primary small" onclick="window.app.switchTab('flashcards')">Study Flashcards</button>
+          <button class="btn outline small" onclick="window.app.switchTab('exam')">Exam Trainer</button>
         </div>
       </div>
     </section>
@@ -159,17 +157,17 @@
         <div class="flashcard-filter-bar">
           <div style="display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap;">
             <select id="flashcard-category-select" style="padding: var(--space-2) var(--space-4); border: 1.5px solid var(--color-line); border-radius: var(--radius); font-size: var(--text-sm); font-weight: 600; background: var(--color-surface); color: var(--color-ink);">
-              <option value="all">🌟 All Grade 1 Checklist (Complete Deck)</option>
-              <option value="values">⏳ Note Values, Rests & Ties (Semibreve to Semiquaver)</option>
-              <option value="time">⏱️ Simple Time Signatures (2/4, 3/4, 4/4, Common Time)</option>
-              <option value="notes">🎼 Notes on Grand Staff & Accidentals (Treble & Bass)</option>
-              <option value="scales">☀️ Major Scales & Tonic Triads (C, G, D, F Major)</option>
-              <option value="terms">📖 Frequently Used Italian Terms & Signs</option>
+              <option value="all">All Grade 1 Checklist (Complete Deck)</option>
+              <option value="values">Note Values, Rests & Ties (Semibreve to Semiquaver)</option>
+              <option value="time">Simple Time Signatures (2/4, 3/4, 4/4, Common Time)</option>
+              <option value="notes">Notes on Grand Staff & Accidentals (Treble & Bass)</option>
+              <option value="scales">Major Scales & Tonic Triads (C, G, D, F Major)</option>
+              <option value="terms">Frequently Used Italian Terms & Signs</option>
             </select>
           </div>
 
           <button class="btn outline small" id="flashcard-shuffle-btn" onclick="window.flashcardsEngine.shuffleDeck();">
-            🔀 Shuffle Deck
+            Shuffle Deck
           </button>
         </div>
 
@@ -287,7 +285,7 @@
       <!-- Terms Glossary -->
       <h3 style="margin-top: var(--space-8);" id="glossary-title">Terms & Signs Glossary (Grade 1)</h3>
       <div style="display: flex; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap;">
-        <input type="text" id="glossary-search" placeholder="🔍 Search term or meaning (e.g. Allegro, Dolce, Staccato)..." style="flex: 1; min-width: 260px; padding: var(--space-2) var(--space-4); border: 1px solid var(--color-line); border-radius: var(--radius); font-size: var(--text-sm); background: var(--color-surface); color: var(--color-ink);" />
+        <input type="text" id="glossary-search" placeholder="Search term or meaning (e.g. Allegro, Dolce, Staccato)..." style="flex: 1; min-width: 260px; padding: var(--space-2) var(--space-4); border: 1px solid var(--color-line); border-radius: var(--radius); font-size: var(--text-sm); background: var(--color-surface); color: var(--color-ink);" />
         <select id="glossary-grade-filter" style="padding: var(--space-2) var(--space-4); border: 1px solid var(--color-line); border-radius: var(--radius); font-size: var(--text-sm); background: var(--color-surface); color: var(--color-ink);">
           <option value="1" selected>Grade 1 Terms</option>
           <option value="2">Grade 2 Terms</option>
@@ -356,7 +354,7 @@
             </div>
             <div style="text-align: right;">
               <span style="font-size: var(--text-xs); color: var(--color-muted); text-transform: uppercase;">Streak</span>
-              <div id="exam-streak-val" class="mono" style="font-weight: 700; color: var(--color-ink); font-size: var(--text-lg);">0 🔥</div>
+              <div id="exam-streak-val" class="mono" style="font-weight: 700; color: var(--color-ink); font-size: var(--text-lg);">0</div>
             </div>
           </div>
         </div>
@@ -409,13 +407,13 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="audio.js?v=20261116a"></script>
-  <script src="piano.js?v=20261116a"></script>
-  <script src="stave.js?v=20261116a"></script>
-  <script src="abrsm-data.js?v=20261116a"></script>
-  <script src="abrsm-quiz.js?v=20261116a"></script>
-  <script src="flashcards.js?v=20261116a"></script>
-  <script src="worksheets.js?v=20261116a"></script>
-  <script src="app.js?v=20261116a"></script>
+  <script src="audio.js?v=20261119a"></script>
+  <script src="piano.js?v=20261119a"></script>
+  <script src="stave.js?v=20261119a"></script>
+  <script src="abrsm-data.js?v=20261119a"></script>
+  <script src="abrsm-quiz.js?v=20261119a"></script>
+  <script src="flashcards.js?v=20261119a"></script>
+  <script src="worksheets.js?v=20261119a"></script>
+  <script src="app.js?v=20261119a"></script>
 </body>
 </html>

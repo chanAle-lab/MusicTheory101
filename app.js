@@ -119,22 +119,6 @@ class AbrsmApp {
       });
     });
 
-    // Volume Slider & Mute
-    const volSlider = document.getElementById('master-volume');
-    if (volSlider) {
-      volSlider.addEventListener('input', (e) => {
-        window.soundEngine.setVolume(parseFloat(e.target.value));
-      });
-    }
-
-    const muteBtn = document.getElementById('mute-btn');
-    if (muteBtn) {
-      muteBtn.addEventListener('click', () => {
-        const isMuted = window.soundEngine.toggleMute();
-        muteBtn.textContent = isMuted ? '🔇' : '🔊';
-      });
-    }
-
     // Glossary Filter Events
     const searchInput = document.getElementById('glossary-search');
     const gradeSelect = document.getElementById('glossary-grade-filter');
@@ -181,12 +165,14 @@ class AbrsmApp {
   updateThemeButton(theme) {
     const toggleBtn = document.getElementById('theme-toggle-btn');
     if (!toggleBtn) return;
+    const sunSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+    const moonSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
     if (theme === 'dark') {
-      toggleBtn.textContent = '☀️';
+      toggleBtn.innerHTML = sunSvg;
       toggleBtn.title = 'Switch to Light Mode (currently Dark)';
       toggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
     } else {
-      toggleBtn.textContent = '🌙';
+      toggleBtn.innerHTML = moonSvg;
       toggleBtn.title = 'Switch to Dark Mode (currently Light)';
       toggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
     }
@@ -286,8 +272,8 @@ class AbrsmApp {
       if (heroLede) heroLede.textContent = 'Start your music theory journey with a complete Grade 1 foundation: note values, rests, simple time signatures, Grand Staff pitch, C/G/D/F major scales, tonic triads, and Italian terms.';
       if (heroActions) {
         heroActions.innerHTML = `
-          <button class="btn primary" onclick="window.app.switchTab('flashcards');">🃏 Study Grade 1 Flashcards</button>
-          <button class="btn outline" onclick="window.app.switchTab('exam');">📝 Grade 1 Practice Exam</button>
+          <button class="btn primary" onclick="window.app.switchTab('flashcards');">Study Grade 1 Flashcards</button>
+          <button class="btn outline" onclick="window.app.switchTab('exam');">Grade 1 Practice Exam</button>
           <button class="btn outline" onclick="window.app.setGrade(2);">Advance to Grade 2 →</button>
         `;
       }
@@ -300,10 +286,10 @@ class AbrsmApp {
       if (heroActions) {
         const nextGradeHtml = gradeNum < 5 
           ? `<button class="btn primary" onclick="window.app.setGrade(${gradeNum + 1});">Advance to Grade ${gradeNum + 1} →</button>`
-          : `<span class="tag" style="padding: var(--space-2) var(--space-3); background: #2e7d5e; color: #fff;">🎓 Final Capstone Level</span>`;
+          : `<span class="tag" style="padding: var(--space-2) var(--space-3); background: #2e7d5e; color: #fff;">Final Capstone Level</span>`;
         heroActions.innerHTML = `
-          <button class="btn primary" onclick="window.app.switchTab('syllabus');">📋 Grade ${gradeNum} Checklist</button>
-          <button class="btn outline" onclick="window.app.switchTab('exam');">📝 Grade ${gradeNum} Exam</button>
+          <button class="btn primary" onclick="window.app.switchTab('syllabus');">Grade ${gradeNum} Checklist</button>
+          <button class="btn outline" onclick="window.app.switchTab('exam');">Grade ${gradeNum} Exam</button>
           <button class="btn outline" onclick="window.app.setGrade(1);">← Back to Grade 1</button>
           ${nextGradeHtml}
         `;
@@ -423,7 +409,7 @@ class AbrsmApp {
       callout.innerHTML = `
         <div class="next-grade-card">
           <div>
-            <div class="next-grade-title">🌟 Ready for the next stage? Advance to Grade 2</div>
+            <div class="next-grade-title">Ready for the next stage? Advance to Grade 2</div>
             <p class="next-grade-text">
               Once you feel confident with the Grade 1 checklist above, you can advance to Grade 2 to learn 2/2 and 3/8 times, triplet rhythms, ledger lines, and relative minor keys (A, E, D harmonic minor).
             </p>
@@ -437,7 +423,7 @@ class AbrsmApp {
       callout.innerHTML = `
         <div class="next-grade-card">
           <div>
-            <div class="next-grade-title">🌟 Progressing to Grade ${gradeNum + 1}</div>
+            <div class="next-grade-title">Progressing to Grade ${gradeNum + 1}</div>
             <p class="next-grade-text">
               Mastered the Grade ${gradeNum} requirements? Advance to Grade ${gradeNum + 1} to unlock new time signatures, clefs, and harmonic structures.
             </p>
@@ -456,7 +442,7 @@ class AbrsmApp {
       callout.innerHTML = `
         <div class="next-grade-card" style="border-color: #2e7d5e;">
           <div>
-            <div class="next-grade-title" style="color: #2e7d5e;">🎓 You are viewing the Capstone: Grade 5</div>
+            <div class="next-grade-title" style="color: #2e7d5e;">You are viewing the Capstone: Grade 5</div>
             <p class="next-grade-text">
               Grade 5 is the premier prerequisite level for higher music study. Review all cadences, inversions, transposing instruments, and irregular meters.
             </p>
@@ -800,7 +786,7 @@ class AbrsmApp {
     const nextBtn = document.getElementById('exam-next-btn');
 
     if (scoreEl) scoreEl.textContent = result.score;
-    if (streakEl) streakEl.textContent = `${result.streak} 🔥`;
+    if (streakEl) streakEl.textContent = `${result.streak}`;
 
     document.querySelectorAll('.exam-choice-button').forEach(btn => {
       btn.disabled = true;
